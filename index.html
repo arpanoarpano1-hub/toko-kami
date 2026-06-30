@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Afan Bot • Update Terbaru</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+body {
+font-family: 'Inter', system-ui, sans-serif;
+line-height: 1.8;
+}
+
+.display-font {
+font-family: 'Playfair Display', sans-serif;
+}
+
+.hero-bg {
+background: linear-gradient(to bottom, #0f172a, #1e2937);
+}
+
+.content-container {
+max-width: 1080px;
+margin: 0 auto;
+}
+
+/* Loading Screen */
+#loading-screen {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100vh;
+background: #09090b;
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 9999;
+transition: opacity 1s ease;
+}
+
+.loader {
+text-align: center;
+}
+
+.loader-spinner {
+width: 60px;
+height: 60px;
+border: 4px solid rgba(52, 211, 153, 0.2);
+border-top: 4px solid #34d399;
+border-radius: 50%;
+animation: spin 1s linear infinite;
+margin: 0 auto 20px;
+}
+
+@keyframes spin {
+to { transform: rotate(360deg); }
+}
+
+.main-content {
+display: none;
+}
+
+.news-card {
+transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.news-card:hover {
+transform: translateY(-10px);
+}
+
+.scroll-progress {
+position: fixed;
+top: 0;
+left: 0;
+height: 3px;
+background: linear-gradient(to right, #34d399, #10b981);
+z-index: 50;
+}
+
+.fade-in {
+opacity: 0;
+transform: translateY(40px);
+transition: all 0.9s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.fade-in.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+.click-ripple {
+position: relative;
+overflow: hidden;
+}
+
+.click-ripple:after {
+content: '';
+position: absolute;
+background: rgba(52, 211, 153, 0.3);
+border-radius: 50%;
+transform: scale(0);
+animation: ripple 0.7s ease-out;
+pointer-events: none;
+}
+
+@keyframes ripple {
+to {
+transform: scale(4);
+opacity: 0;
+}
+}
+</style>
+</head>
+<body class="bg-zinc-950 text-zinc-100">
+
+<!-- LOADING SCREEN -->
+<div id="loading-screen">
+<div class="loader">
+<div class="loader-spinner"></div>
+<div class="text-emerald-400 font-medium tracking-widest text-xl">AFAN BOT</div>
+<div class="text-zinc-500 text-sm mt-2">Loading update terbaru...</div>
+</div>
+</div>
+
+<!-- MAIN CONTENT (hidden initially) -->
+<div id="main-content" class="main-content">
+
+<!-- Progress Bar -->
+<div id="progress-bar" class="scroll-progress w-0"></div>
+
+<!-- Navbar -->
+<nav class="bg-zinc-950 border-b border-zinc-800 fixed w-full z-50">
+<div class="content-container px-6 py-5 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-emerald-500 rounded-2xl flex items-center justify-center text-zinc-950 font-bold text-3xl">A</div>
+<div>
+<span class="display-font text-3xl font-semibold tracking-tighter">AFAN BOT</span>
+</div>
+</div>
+<div class="hidden md:flex gap-8 text-sm font-medium">
+<a href="#osint" class="hover:text-emerald-400 transition-colors">OSINT</a>
+<a href="#htmlweb" class="hover:text-emerald-400 transition-colors">HTML to Web</a>
+<a href="#gemini" class="hover:text-emerald-400 transition-colors">Gemini</a>
+</div>
+<a href="https://t.me/fannzzt" target="_blank"
+class="click-ripple px-7 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold rounded-3xl flex items-center gap-3 transition-all">
+<i class="fab fa-telegram-plane"></i>
+<span>Contact Admin</span>
+</a>
+</div>
+</nav>
+
+<!-- Hero -->
+<header class="hero-bg min-h-screen flex items-center pt-20">
+<div class="content-container px-6 text-center">
+<div class="max-w-2xl mx-auto">
+<div class="inline-flex items-center gap-3 bg-zinc-900 border border-emerald-500/30 text-emerald-400 px-6 py-3 rounded-3xl text-sm">
+<i class="fas fa-bolt"></i>
+<span>UPDATE TERBARU • 30 JUNI 2026</span>
+</div>
+
+<h1 class="display-font text-6xl md:text-7xl font-semibold leading-none tracking-tighter mt-10 mb-8 text-white">
+Bot Afan<br>Siap Ditingkatkan
+</h1>
+
+<p class="text-zinc-300 text-xl md:text-2xl max-w-lg mx-auto leading-relaxed">
+Minggu depan hadir fitur OSINT lengkap, upgrade HTML to Web, dan persiapan Gemini 1.5 Flash.
+</p>
+
+<div class="mt-14 flex flex-col sm:flex-row gap-4 justify-center">
+<button onclick="document.getElementById('osint').scrollIntoView({ behavior: 'smooth' })"
+class="click-ripple py-6 px-12 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold rounded-3xl text-lg transition-all">
+LIHAT DETAIL
+</button>
+<button onclick="window.open('https://t.me/fannzzt','_blank')"
+class="click-ripple py-6 px-12 border border-zinc-400 hover:border-white rounded-3xl text-lg transition-all">
+Hubungi Admin
+</button>
+</div>
+</div>
+</div>
+</header>
+
+<!-- Ticker -->
+<div class="bg-zinc-900 border-b border-zinc-800 py-4 overflow-hidden text-sm text-emerald-300">
+<div class="flex items-center gap-8 whitespace-nowrap">
+<span class="inline-flex items-center gap-2">
+<i class="fas fa-circle text-[10px]"></i> OSINT akan rilis minggu depan
+</span>
+<span class="inline-flex items-center gap-2">
+<i class="fas fa-circle text-[10px]"></i> HTML to Web telah ditingkatkan
+</span>
+<span class="inline-flex items-center gap-2">
+<i class="fas fa-circle text-[10px]"></i> Gemini 1.5 Flash sedang diintegrasikan
+</span>
+</div>
+</div>
+
+<main class="content-container px-6 py-20 space-y-28">
+<!-- OSINT -->
+<section id="osint" class="section fade-in">
+<div class="grid md:grid-cols-12 gap-16">
+<div class="md:col-span-7">
+<div class="news-card bg-zinc-900 rounded-3xl p-10 md:p-16 border border-zinc-800">
+<div class="flex items-center gap-4 mb-8">
+<i class="fas fa-search text-6xl text-emerald-400"></i>
+<span class="uppercase text-xs tracking-[2px] text-emerald-400 font-medium">Fitur Baru</span>
+</div>
+<h2 class="display-font text-5xl md:text-6xl font-semibold tracking-tighter leading-none mb-8">
+OSINT Intelligence
+</h2>
+<p class="text-zinc-300 text-[1.08rem] leading-relaxed">
+Open Source Intelligence (OSINT) adalah teknik pengumpulan informasi dari sumber terbuka publik seperti media sosial, website, dan data publik lainnya.
+</p>
+<div class="grid grid-cols-2 gap-6 mt-12">
+<div class="border border-zinc-700 rounded-2xl p-6">
+<i class="fas fa-user text-3xl text-emerald-400 mb-4"></i>
+<p class="font-medium">Username Search</p>
+</div>
+<div class="border border-zinc-700 rounded-2xl p-6">
+<i class="fas fa-network-wired text-3xl text-emerald-400 mb-4"></i>
+<p class="font-medium">Domain & IP Intel</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="md:col-span-5">
+<div class="bg-zinc-900 rounded-3xl p-10 border border-zinc-700 h-full">
+<h3 class="text-2xl font-semibold mb-6">Apa itu OSINT?</h3>
+<p class="text-zinc-400 leading-relaxed">
+Teknik intelijen yang memanfaatkan data publik untuk mendapatkan informasi penting.
+Modul lengkap akan dirilis minggu depan.
+</p>
+<div class="mt-auto pt-12">
+<div class="text-emerald-400 text-sm font-medium flex items-center gap-2">
+<i class="fas fa-clock"></i>
+<span>RILIS MINGGU DEPAN</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- HTML to Web -->
+<section id="htmlweb" class="section fade-in">
+<div class="bg-zinc-900 rounded-3xl p-10 md:p-16 border border-zinc-800">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div>
+<span class="inline-block bg-amber-500/10 text-amber-400 px-6 py-3 rounded-3xl text-sm font-medium">UPDATED LAST WEEK</span>
+<h2 class="display-font text-5xl font-semibold tracking-tighter mt-8 mb-6">HTML to Web</h2>
+<p class="text-zinc-300 text-lg leading-relaxed">
+Fitur HTML to Web yang dirilis minggu lalu terus dikembangkan oleh Afan.
+Hasilnya lebih elegan dan nyaman digunakan.
+</p>
+<ul class="mt-10 space-y-6">
+<li class="flex gap-4"><i class="fas fa-check text-emerald-400 mt-1"></i> Desain otomatis modern</li>
+<li class="flex gap-4"><i class="fas fa-check text-emerald-400 mt-1"></i> Responsif semua ukuran layar</li>
+<li class="flex gap-4"><i class="fas fa-check text-emerald-400 mt-1"></i> Animasi halus</li>
+</ul>
+</div>
+<div class="bg-black rounded-3xl p-8 border border-zinc-700 font-mono text-sm text-emerald-200">
+<div class="h-8 bg-zinc-900 rounded-t-3xl -mx-8 -mt-8 mb-8 flex items-center px-6">
+<div class="flex gap-2">
+<div class="w-3 h-3 bg-red-500 rounded-full"></div>
+<div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+<div class="w-3 h-3 bg-emerald-500 rounded-full"></div>
+</div>
+</div>
+Beautiful & Clean Website<br>
+Generated Instantly
+</div>
+</div>
+</div>
+</section>
+
+<!-- Gemini -->
+<section id="gemini" class="section fade-in">
+<div class="bg-zinc-900 border border-violet-500/30 rounded-3xl p-12 md:p-20 text-center">
+<i class="fas fa-bolt text-7xl text-violet-400 mb-8"></i>
+<h2 class="display-font text-5xl font-semibold mb-6">Gemini 1.5 Flash</h2>
+<p class="max-w-md mx-auto text-zinc-300 text-lg">
+Afan sedang berusaha menambahkan Gemini 1.5 Flash ke dalam bot.
+Proses integrasi ini masih berjalan dan butuh waktu lebih lama.
+</p>
+<div class="mt-10 inline-block bg-zinc-800 text-emerald-400 text-sm px-8 py-4 rounded-3xl">
+Sedang dalam pengembangan
+</div>
+</div>
+</section>
+</main>
+
+<!-- Access Section -->
+<div class="bg-zinc-900 py-20 border-t border-b border-zinc-800">
+<div class="content-container px-6 text-center">
+<h3 class="text-3xl font-semibold mb-4">Dapatkan Akses Bot</h3>
+<p class="text-zinc-400 mb-12 max-w-md mx-auto">Follow TikTok terlebih dahulu, lalu klik tombol di bawah</p>
+
+<div id="access-card" class="max-w-md mx-auto bg-zinc-800 rounded-3xl p-10">
+<div id="access-content">
+<a href="https://www.tiktok.com/@fanz27713" target="_blank" class="block mb-8 text-pink-400 hover:text-pink-300 transition-colors">
+<i class="fab fa-tiktok text-6xl"></i>
+<div class="mt-3 font-medium">@fanz27713</div>
+</a>
+
+<button onclick="startAccessProcess()" id="access-btn"
+class="click-ripple w-full py-6 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold rounded-3xl text-lg transition-all flex items-center justify-center gap-3">
+<i class="fas fa-key"></i>
+<span>PROSES AKSES BOT</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Final CTA -->
+<div class="bg-zinc-900 py-20">
+<div class="content-container px-6 text-center">
+<h2 class="text-4xl md:text-5xl font-semibold tracking-tight">Siap pakai fitur terbaru?</h2>
+<p class="text-zinc-400 mt-4 text-lg">Bergabung dengan komunitas Afan Bot sekarang</p>
+
+<a href="https://t.me/fannzzt" target="_blank"
+class="click-ripple mt-10 inline-flex items-center gap-4 bg-white text-zinc-950 font-semibold px-14 py-7 rounded-3xl text-xl hover:scale-105 transition-transform">
+<i class="fab fa-telegram-plane"></i>
+<span>HUBUNGI ADMIN</span>
+</a>
+</div>
+</div>
+
+<footer class="py-10 text-center text-zinc-500 text-sm border-t border-zinc-800">
+© 2026 Afan Bot • Semua fitur sedang dikembangkan
+</footer>
+</div>
+
+<script>
+// Hide loading and show main content
+window.onload = function() {
+setTimeout(() => {
+const loadingScreen = document.getElementById('loading-screen');
+const mainContent = document.getElementById('main-content');
+
+loadingScreen.style.opacity = '0';
+
+setTimeout(() => {
+loadingScreen.style.display = 'none';
+mainContent.style.display = 'block';
+
+// Trigger fade-in animations
+document.querySelectorAll('.fade-in').forEach(el => {
+el.classList.add('visible');
+});
+}, 1000);
+}, 1800); // Loading duration
+};
+
+// Progress Bar
+window.addEventListener('scroll', () => {
+const scrollTop = document.documentElement.scrollTop;
+const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+const progress = (scrollTop / height) * 100;
+document.getElementById('progress-bar').style.width = ${progress}%`;
+});
+
+// Click Ripple
+function addRipples() {
+document.querySelectorAll('.click-ripple').forEach(btn => {
+btn.addEventListener('click', function(e) {
+const rect = this.getBoundingClientRect();
+const ripple = document.createElement('span');
+ripple.style.position = 'absolute';
+ripple.style.left = ``${e.clientX - rect.left}px; ripple.style.top =${e.clientY - rect.top}px`;
+ripple.style.width = '20px';
+ripple.style.height = '20px';
+ripple.style.background = 'rgba(255,255,255,0.5)';
+ripple.style.borderRadius = '50%';
+ripple.style.transform = 'scale(0)';
+ripple.style.animation = 'ripple 0.6s linear';
+this.appendChild(ripple);
+setTimeout(() => ripple.remove(), 700);
+});
+});
+}
+
+// Access Loading
+function startAccessProcess() {
+const btn = document.getElementById('access-btn');
+const content = document.getElementById('access-content');
+
+btn.innerHTML = &lt;i class="fas fa-spinner loading-spinner"&gt;&lt;/i&gt; &lt;span&gt;Memproses Akses...&lt;/span&gt;;
+btn.disabled = true;
+
+setTimeout(() => {
+content.innerHTML = &lt;div class="text-center"&gt; &lt;i class="fas fa-check-circle text-7xl text-emerald-400"&gt;&lt;/i&gt; &lt;div class="mt-6 text-2xl font-semibold text-emerald-400"&gt;Akses Berhasil!&lt;/div&gt; &lt;p class="text-zinc-400 mt-3"&gt;Selamat! Kamu telah mendapatkan akses ke Afan Bot.&lt;/p&gt; &lt;div class="mt-8"&gt; &lt;a href="https://t.me/fannzzt" target="_blank" class="click-ripple inline-flex items-center gap-3 bg-emerald-500 text-zinc-950 px-8 py-4 rounded-3xl font-medium"&gt; &lt;i class="fab fa-telegram-plane"&gt;&lt;/i&gt; &lt;span&gt;Buka Bot di Telegram&lt;/span&gt; &lt;/a&gt; &lt;/div&gt; &lt;/div&gt;;
+}, 2200);
+}
+
+// Initialize ripples after content loads
+setTimeout(() => {
+addRipples();
+}, 2000);
+</script>
+</body>
+</html>
